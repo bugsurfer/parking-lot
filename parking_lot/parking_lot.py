@@ -12,7 +12,8 @@ def run_query(query):
     if query_params[0] == 'create_parking_lot':
         size = query_params[1]
         global parking_lot
-        parking_lot = parking_lot_helper.create_parking_lot(size=int(size))
+        parking_lot, status = parking_lot_helper.create_parking_lot(size=int(size))
+        print(status)
     else:
         if not parking_lot:
             print(errors.PARKING_LOT_DOES_NOT_EXISTS)
@@ -20,21 +21,21 @@ def run_query(query):
         if query_params[0] == 'park':
             registration_number = query_params[1]
             color = query_params[2]
-            parking_lot_helper.park_car(registration_number=registration_number, color=color)
+            print(parking_lot_helper.park_car(registration_number=registration_number, color=color))
         elif query_params[0] == 'leave':
             slot_number = int(query_params[1])
-            parking_lot_helper.vacate_slot(slot_number=slot_number)
+            print(parking_lot_helper.vacate_slot(slot_number=slot_number))
         elif query_params[0] == 'status':
-            parking_lot_helper.parking_lot_status()
+            print(parking_lot_helper.parking_lot_status())
         elif query_params[0] == 'slot_numbers_for_cars_with_colour':
             color = query_params[1]
-            parking_lot_helper.slots_numbers_for_cars_with_color(color=color)
+            print(parking_lot_helper.slots_numbers_for_cars_with_color(color=color))
         elif query_params[0] == 'registration_numbers_for_cars_with_colour':
             color = query_params[1]
-            parking_lot_helper.registration_numbers_for_cars_with_color(color=color)
+            print(parking_lot_helper.registration_numbers_for_cars_with_color(color=color))
         elif query_params[0] == 'slot_number_for_registration_number':
             registration_number = query_params[1]
-            parking_lot_helper.slots_number_of_cars_with_registration_number(registration_number=registration_number)
+            print(parking_lot_helper.slots_number_of_cars_with_registration_number(registration_number=registration_number))
         else:
             print('Invalid Command')
 

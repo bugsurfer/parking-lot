@@ -64,3 +64,9 @@ class ParkingLot(object):
             return slot
 
         return slot
+
+    def get_total_slots(self):
+        """
+        :return: Returns total number of slots available in Parking Lot
+        """
+        return self.totalSlots

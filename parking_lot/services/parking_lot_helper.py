@@ -16,8 +16,7 @@ class ParkingLotHelper(object):
         Desc: Creates a parking lot with given size
         """
         self.parking_lot = ParkingLot(size)
-        print('Created a parking lot with {} slots'.format(size))
-        return self.parking_lot
+        return self.parking_lot, 'Created a parking lot with {} slots'.format(size)
 
     def park_car(self, registration_number, color):
         """
@@ -33,21 +32,18 @@ class ParkingLotHelper(object):
         """
         if not self.parking_lot.are_slots_available():
             # no slots are available i.e parking lot is full and cannot accomadate any more cars
-            print(errors.PARKING_LOT_IS_FULL)
-            return
+            return errors.PARKING_LOT_IS_FULL
 
         if self.check_car_already_parked(registration_number=registration_number):
-            print(errors.CAR_ALREADY_PARKED)
-            return
+            return errors.CAR_ALREADY_PARKED
 
         car = Car(regnumber=registration_number, color=color)
         slot = self.parking_lot.get_available_slot()
         if not slot:
-            print (errors.PARKING_LOT_IS_FULL)
-            return
+            return errors.PARKING_LOT_IS_FULL
 
         self.parking_lot.allocate_parking(car=car, slot=slot)
-        print ('Allocated slot number: {}'.format(slot.slotNumber))
+        return 'Allocated slot number: {}'.format(slot.slotNumber)
 
     def vacate_slot(self, slot_number):
         """
@@ -60,10 +56,9 @@ class ParkingLotHelper(object):
         vacated_slot = self.parking_lot.vacate_slot(slot_number=slot_number)
 
         if not vacated_slot:
-            print(errors.UNAVAILABLE_SLOT)
-            return
+            return errors.UNAVAILABLE_SLOT
 
-        print('Slot number {} is free'.format(slot_number))
+        return 'Slot number {} is free'.format(slot_number)
 
     def check_car_already_parked(self, registration_number):
         """
@@ -108,12 +103,17 @@ class ParkingLotHelper(object):
         max_slot_len = max_slot_len + 4
         max_reg_no_length = max_reg_no_length + 4
 
-        print ('Slot No.'.ljust(max_slot_len) + 'Registration No'.ljust(max_reg_no_length) + 'Colour')
+        return_string = ''
+        return_string = return_string + 'Slot No.'.ljust(max_slot_len) + 'Registration No'.ljust(
+            max_reg_no_length) + 'Colour' + '\n'
         for slot_details in parking_lot_status:
             slot_number = slot_details['slot_number']
             registration_number = slot_details['reg_no']
             color = slot_details['color']
-            print (slot_number.ljust(max_slot_len) + registration_number.ljust(max_reg_no_length) + color)
+            return_string = return_string + slot_number.ljust(max_slot_len) + registration_number.ljust(
+                max_reg_no_length) + color + '\n'
+
+        return return_string[:-1]
 
     def slots_numbers_for_cars_with_color(self, color):
         """
@@ -134,14 +134,13 @@ class ParkingLotHelper(object):
                     slot_numbers.append(str(slot_number))
 
         if not slot_numbers:
-            print (errors.NOT_FOUND)
-            return
+            return errors.NOT_FOUND
 
         slot_numbers_string = slot_numbers[0]
         for slot_number in slot_numbers[1:]:
             slot_numbers_string = slot_numbers_string + ', ' + slot_number
 
-        print (slot_numbers_string)
+        return slot_numbers_string
 
     def registration_numbers_for_cars_with_color(self, color):
         """
@@ -157,14 +156,13 @@ class ParkingLotHelper(object):
                     registration_numbers.append(car.get_registration_number())
 
         if not registration_numbers:
-            print (errors.NOT_FOUND)
-            return
+            return errors.NOT_FOUND
 
         registration_numbers_string = registration_numbers[0]
         for slot_number in registration_numbers[1:]:
             registration_numbers_string = registration_numbers_string + ', ' + slot_number
 
-        print (registration_numbers_string)
+        return registration_numbers_string
 
     def slots_number_of_cars_with_registration_number(self, registration_number):
         """
@@ -176,17 +174,6 @@ class ParkingLotHelper(object):
             car = slot.get_occupied_car()
             if car:
                 if registration_number == car.get_registration_number():
-                    print (slot_number)
-                    return
+                    return slot_number
 
-        print (errors.NOT_FOUND)
-
-    def parking_lot_exists(self):
-        """
-        :return: Return True if parking lot exists else False
-        """
-        if not self.parking_lot:
-            print (errors.PARKING_LOT_DOES_NOT_EXISTS)
-            return False
-
-        return True
+        return errors.NOT_FOUND
