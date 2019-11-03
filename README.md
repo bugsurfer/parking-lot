@@ -45,5 +45,7 @@ Run python3 parking_lot.py after cd into tests directory
 
 NOTE: you need to cd to tests directory to run the TestSuite
 
+IMPORTANT:
+if bin/setup or bin/parking_lot is not working make sure you give permissions to run
 
-      
+chmod +x bin/parking_lot
