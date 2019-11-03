@@ -19,16 +19,22 @@ Car
 I have also included a file file.txt which has sample input
 
 How to Run?
+
 Step 1: Go inside the parking Lot
+
 Step 2: Run bin/setup
+
         This installs all the dependencies required(Python 3). This may take a while around 3 minutes
 
         It also runs the TestSuite which contain test classes
 
 Step 3: Executing the application code
+
         Interactive Way:
+
           Run bin/parking_lot
           and now Give any of the below commands
+
           1.create_parking_lot
           2.park
           3.leave
