@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/parking_lot_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-549">
-              <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+            <state relative-caret-position="201">
+              <caret line="136" column="30" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -169,6 +169,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -209,12 +210,12 @@
       <option name="presentableId" value="Default" />
       <updated>1572596786288</updated>
       <workItem from="1572596797965" duration="16181000" />
-      <workItem from="1572722308913" duration="4055000" />
+      <workItem from="1572722308913" duration="4368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20236000" />
+    <option name="totallyTimeSpent" value="20549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -292,8 +293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/parking_lot_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-549">
-          <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+        <state relative-caret-position="201">
+          <caret line="136" column="30" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
