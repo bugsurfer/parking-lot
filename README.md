@@ -20,7 +20,7 @@ I have also included a file file.txt which has sample input
 
 How to Run?
 
-Step 1: Go inside the parking Lot
+Step 1: Go inside the parking Lot (Which contain bin, parking_lot(this contains the ource code) and ReadMe File)
 
 Step 2: Run bin/setup
 
