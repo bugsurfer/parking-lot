@@ -1,5 +1,4 @@
 # parking_lot
-GOJEK Parking Lot Assignment
 
 I have implemented the solution in Python
 
